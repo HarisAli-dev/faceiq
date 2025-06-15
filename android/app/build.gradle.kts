@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.faceiq"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = 7.0.12077973
+    ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

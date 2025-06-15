@@ -22,7 +22,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String _email = '';
   bool _isEditing = false;
   bool _isLoading = false;
-  String? _errorMessage;
 
   @override
   void initState() {
@@ -53,7 +52,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     } catch (e) {
       setState(() {
         _isLoading = false;
-        _errorMessage = "Failed to load profile data";
       });
     }
   }
@@ -67,7 +65,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     setState(() {
       _isLoading = true;
-      _errorMessage = null;
     });
 
     try {
@@ -77,7 +74,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       // Verify current password
       if (_currentPasswordController.text != storedPassword) {
         setState(() {
-          _errorMessage = "Current password is incorrect";
           _isLoading = false;
         });
         return;
@@ -109,7 +105,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       }
     } catch (e) {
       setState(() {
-        _errorMessage = 'Failed to update profile';
         _isLoading = false;
       });
     }
@@ -149,20 +144,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                       SizedBox(height: mq.height * 0.02),
-
-                      // Error message if any
-                      if (_errorMessage != null)
-                        Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.only(bottom: 15),
-                          color: Colors.red.shade100,
-                          child: Text(
-                            _errorMessage!,
-                            style: const TextStyle(color: Colors.red),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
 
                       // User info or edit form
                       if (_isEditing) ...[
@@ -243,7 +224,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 _username;
                                             _currentPasswordController.clear();
                                             _newPasswordController.clear();
-                                            _errorMessage = null;
                                           }),
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.grey,
