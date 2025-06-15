@@ -168,7 +168,7 @@ class _SignInState extends State<SignIn> {
                     },
 
                     controller: _passwordController,
-                    obscureText: _obscurePassword!,
+                    obscureText: !_obscurePassword,
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         icon: Icon(
