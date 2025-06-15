@@ -29,9 +29,11 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
-.pub-cache/
+.packages
 .pub/
-/build/
+build/
+ios/Pods/
+ios/.symlinks/
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +45,17 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# IDE specific
+.idea/
+.vscode/
+*.iml
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# Local configuration
+.env
+key.properties
