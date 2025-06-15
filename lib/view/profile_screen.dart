@@ -76,6 +76,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         setState(() {
           _isLoading = false;
         });
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Wrong password!'),
+            backgroundColor: Colors.green,
+          ),
+        );
         return;
       }
 
