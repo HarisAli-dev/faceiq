@@ -51,7 +51,7 @@ class _CompareScreenState extends State<CompareScreen> {
             context,
             MaterialPageRoute(
               builder:
-                  (context) => CompareResultScreen(
+                  (context) => ComparisonResultScreen(
                     firstImage: _firstImage!,
                     secondImage: _secondImage!,
                   ),
